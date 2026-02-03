@@ -2,35 +2,34 @@
 import { User, UserRole, Exam, ExamType, QuestionType, ExamResult } from './types';
 
 export const MOCK_USERS: User[] = [
-  { id: '1', name: 'Pak Budi (Pengawas)', role: UserRole.PENGAWAS, email: 'pengawas@edu.com' },
   { id: '4', name: 'Rizky Ramadhan', role: UserRole.SISWA, email: 'rizky@edu.com', class: 'XII-IPA-1' },
 ];
 
 export const INITIAL_EXAMS: Exam[] = [
   {
     id: 'ex-1',
-    title: 'UTS Matematika Semester Ganjil',
+    title: 'UTS Bahasa Inggris Semester Ganjil',
     type: ExamType.UTS,
-    subject: 'Matematika',
+    subject: 'Bahasa Inggris',
     teacherId: '1',
     className: 'XII-IPA-1',
     startTime: '2023-10-25T08:00:00',
     durationMinutes: 90,
-    isActive: false,
+    isActive: true,
     isCameraRequired: true,
     questions: [
       {
         id: 'q1',
         type: QuestionType.PG,
-        text: 'Berapakah hasil dari 25 x 4?',
-        options: ['80', '90', '100', '110'],
-        correctAnswer: '100',
+        text: 'Choose the correct verb form: She ___ to the market yesterday.',
+        options: ['go', 'went', 'gone', 'going'],
+        correctAnswer: 'went',
         points: 50
       },
       {
         id: 'q2',
         type: QuestionType.ESSAY,
-        text: 'Jelaskan bagaimana cara menghitung luas segitiga.',
+        text: 'Describe your daily routine in 5 sentences.',
         points: 50
       }
     ]
@@ -53,13 +52,13 @@ export const MOCK_RESULTS: ExamResult[] = [
     answers: [
       {
         questionId: 'q1',
-        studentAnswer: '100',
+        studentAnswer: 'went',
         score: 50,
         maxScore: 50
       },
       {
         questionId: 'q2',
-        studentAnswer: 'Rumusnya adalah 1/2 dikali alas dikali tinggi (1/2 * a * t).',
+        studentAnswer: 'I wake up at 6 AM. I take a shower and eat breakfast. Then I go to school. After school I play football. I study at night before sleeping.',
         score: 0,
         maxScore: 50
       }

@@ -45,8 +45,8 @@ const Sidebar: React.FC<SidebarProps> = ({ user, onLogout, activeMenu, onMenuCha
               key={idx}
               onClick={() => onMenuChange(item.label)}
               className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ${activeMenu === item.label
-                  ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-900/20'
-                  : 'hover:bg-slate-800 hover:text-white text-slate-400'
+                ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-900/20'
+                : 'hover:bg-slate-800 hover:text-white text-slate-400'
                 }`}
             >
               <span className={activeMenu === item.label ? 'text-white' : 'text-slate-500 group-hover:text-white'}>
@@ -56,16 +56,6 @@ const Sidebar: React.FC<SidebarProps> = ({ user, onLogout, activeMenu, onMenuCha
             </button>
           ))}
         </nav>
-      </div>
-
-      <div className="mt-auto p-6 border-t border-slate-800">
-        <button
-          onClick={onLogout}
-          className="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all hover:bg-red-500/10 hover:text-red-400 text-slate-500"
-        >
-          <LogOut size={20} />
-          <span className="font-semibold text-sm">Logout</span>
-        </button>
       </div>
     </aside>
   );

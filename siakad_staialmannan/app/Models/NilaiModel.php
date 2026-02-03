@@ -17,7 +17,7 @@ class NilaiModel extends Model
     protected $protectFields    = true;
     protected $allowedFields    = ['id_ljk', 'id_krs', 't_akad', 'kd_kelas', 'kd_kelas_perkuliahan', 'id_mk', 'id_matkul_kurikulum', 'kode_mk_feeder', 'sks', 'id_mhs', 'id_his_pdk', 'nim', 'smt_mhs', 'prodi_mhs', 'kelas_mhs', 'ljk', 'tgl_upload_ljk_uas', 
                                     'ljk_uts', 'tgl_upload_ljk_uts', 'artikel', 'tgl_upload_artikel', 'tugas', 'tgl_upload_tugas', 'Nilai_UTS', 'Nilai_TGS', 'Nilai_UAS', 'Nilai_Performance', 'Nilai_Akhir', 
-                                    'Nilai_Huruf', 'Status_Nilai', 'Rekom_Nilai', 'ket', 'transfer', 'id_ku', 'id_mk_asal', 'id_mk_pengganti', 'cekal_kuliah'];
+                                    'Nilai_Huruf', 'Status_Nilai', 'Rekom_Nilai', 'ket', 'transfer', 'id_ku', 'id_mk_asal', 'id_mk_pengganti', 'cekal_kuliah', 'ctt_uts', 'ctt_uas'];
     
     //Konfigurasi Datatable Serverside
     protected $column_order = ['smt_mhs'];

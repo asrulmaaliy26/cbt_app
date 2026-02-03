@@ -315,19 +315,30 @@ function showLjk(jns_ujian, id_ljk)
     return false;
 }
 
-function showSoal(jns_ujian, id_mk, id_ljk)
+function showSoal(jns_ujian, id_mk, id_ljk, subjectName)
 {
     var link = "<?=base_url("akademik/$controller/showSoal?jns_ujian=")?>"+jns_ujian+"&id_mk="+id_mk+"&id_ljk="+id_ljk;
-    var iframe = '<object type="text/html" data="'+link+'" frameborder="0" scrolling="yes" seamless="seamless" style="display:block; width:100%; height:100vh;">No Support</object>';
-    //var link_cetak = "<?=base_url("keuangan/transaksi/cetak_nota?id_transaksi=")?>"+id_trx;
+    
+    // Get Student Data from PHP (embedded in JS)
+    var studentName = "<?=getDataRow('db_data_diri_mahasiswa', ['id' => $id_data_diri])['Nama_Lengkap'];?>";
+    var studentNIM = "<?=$his_pdk['NIM'];?>";
+    var studentClass = "<?=$his_pdk['Kelas'];?>";
+    var examType = (jns_ujian === 'uts') ? 'Ujian Tengah Semester' : (jns_ujian === 'uas') ? 'Ujian Akhir Semester' : 'Tugas Akhir';
+    var returnUrl = window.location.href;
 
-    $.buatModal({
-      title:'Soal / Tugas',
-      message: iframe,
-      closeButton:true,
-      scrollable:false,
-      reload_table:true,
-    });
+    // REDIRECT TO FRONTEND PROCTORING APP
+    // Use id_mk as the examId for matching
+    var frontendUrl = "http://localhost:3000/?examUrl=" + encodeURIComponent(link) + 
+                      "&studentName=" + encodeURIComponent(studentName) +
+                      "&studentNIM=" + encodeURIComponent(studentNIM) +
+                      "&studentClass=" + encodeURIComponent(studentClass) +
+                      "&examTitle=" + encodeURIComponent(subjectName) +
+                      "&examType=" + encodeURIComponent(examType) +
+                      "&examId=" + encodeURIComponent(id_mk) +
+                      "&returnUrl=" + encodeURIComponent(returnUrl);
+    
+    window.location.href = frontendUrl;
+    
     return false;
 }
 
